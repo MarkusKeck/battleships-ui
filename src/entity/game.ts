@@ -3,7 +3,7 @@ import {Difficulty} from "../enumeration/difficulty";
 import {Turn} from "./turn";
 import {Field} from "./field";
 
-export class Coordinate {
+export class Game {
 
   id?: number
 
