@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GameConfig} from "../../GameConfig";
-import {ShipType} from "../../entity/shipType";
-import {Orientation} from "../../entity/orientation";
+import {ShipType} from "../../enumeration/shipType";
+import {Orientation} from "../../enumeration/orientation";
 
 @Component({
   selector: 'app-ship-placement',

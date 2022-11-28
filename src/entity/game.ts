@@ -1,5 +1,5 @@
-import {Player} from "./player";
-import {Difficulty} from "./difficulty";
+import {Player} from "../enumeration/player";
+import {Difficulty} from "../enumeration/difficulty";
 import {Turn} from "./turn";
 import {Field} from "./field";
 

@@ -1,4 +1,4 @@
-import {ShipType} from "./entity/shipType";
+import {ShipType} from "./enumeration/shipType";
 
 export class GameConfig {
 

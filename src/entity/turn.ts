@@ -1,4 +1,4 @@
-import {Player} from "./player";
+import {Player} from "../enumeration/player";
 import {Coordinates} from "./coordinates";
 
 export class Turn {
