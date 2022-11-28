@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Coordinate} from "../../entity/coordinate";
+import {Coordinates} from "../../entity/coordinates";
 
 @Component({
   selector: 'app-coordinate-field',
@@ -8,7 +8,7 @@ import {Coordinate} from "../../entity/coordinate";
 })
 export class CoordinateFieldComponent implements OnInit {
 
-  @Input() coordinate!: Coordinate
+  @Input() coordinates!: Coordinates
 
   disabled: boolean = false
 
@@ -18,7 +18,7 @@ export class CoordinateFieldComponent implements OnInit {
   }
 
   placeShip(): void {
-    alert("x: " + this.coordinate.x + " y: " + this.coordinate.y);
+    alert("x: " + this.coordinates.x + " y: " + this.coordinates.y);
     this.disabled = true;
   }
 

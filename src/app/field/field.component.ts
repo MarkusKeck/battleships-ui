@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Coordinate} from "../../entity/coordinate";
+import {Coordinates} from "../../entity/coordinates";
 import {GameConfig} from "../../GameConfig";
 
 @Component({
@@ -9,7 +9,7 @@ import {GameConfig} from "../../GameConfig";
 })
 export class FieldComponent implements OnInit {
 
-  coordinates : Coordinate[] = []
+  coordinates : Coordinates[] = []
 
   constructor() { }
 
@@ -21,7 +21,7 @@ export class FieldComponent implements OnInit {
   populateField() {
     for(let y = 1; y <= GameConfig.HEIGHT; y++) {
       for(let x = 1; x <= GameConfig.WIDTH; x++) {
-        this.coordinates.push(new Coordinate(x, y));
+        this.coordinates.push(new Coordinates(x, y));
       }
     }
   }
