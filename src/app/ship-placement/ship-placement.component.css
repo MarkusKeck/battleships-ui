@@ -1,0 +1,65 @@
+.ship-placement {
+  width: 250px;
+  margin: 25px;
+}
+
+
+.ship-placement-orientation {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ship-placement-orientation button {
+  width: 50%;
+}
+
+.ship-placement-orientation > button > div {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+}
+
+.ship-placement-orientation > button:nth-child(2) > div {
+  transform: rotate(90deg);
+}
+
+
+
+.ship-placement-type {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  line-height: 50px;
+}
+
+.ship-placement-type button {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.ship-placement-type > button > div:first-child{
+  width: 125px;
+}
+.ship-placement-type > button > div:last-child{
+  height: 100%;
+  line-height: 30px;
+}
+
+
+
+button {
+  background-color: white;
+  color: gray;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: black;
+  border: 2px solid cornflowerblue;
+}

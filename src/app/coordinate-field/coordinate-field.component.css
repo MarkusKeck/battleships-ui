@@ -1,0 +1,10 @@
+.coordinate-field {
+  display: inline-block;
+  border: 1px solid black;
+  width: 48px;
+  height: 48px;
+}
+
+.coordinate-field:hover {
+  cursor: pointer;
+}

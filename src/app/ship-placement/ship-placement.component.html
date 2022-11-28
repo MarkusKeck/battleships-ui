@@ -1,0 +1,44 @@
+<div class="ship-placement">
+
+    <div class="ship-placement-orientation">
+      <button (click)="selectOrientation(orientation.HORIZONTAL)" [disabled]="selectedOrientation === orientation.HORIZONTAL"><div>■■■</div>Horizontal</button>
+      <button (click)="selectOrientation(orientation.VERTICAL)" [disabled]="selectedOrientation === orientation.VERTICAL"><div>■■■</div>Vertical</button>
+    </div>
+
+    <div class="ship-placement-type">
+      <button (click)="selectShipType(shipType.SUBMARINE)" [disabled]="selectedShipType === shipType.SUBMARINE">
+        <div>
+          <div>■</div> Submarine
+        </div>
+        <div>({{placedShips.get(shipType.SUBMARINE)}}/{{requiredShips.get(shipType.SUBMARINE)}})</div>
+      </button>
+    </div>
+
+    <div class="ship-placement-type">
+      <button (click)="selectShipType(shipType.DESTROYER)" [disabled]="selectedShipType === shipType.DESTROYER">
+        <div>
+          <div>■■</div> Destroyer
+        </div>
+        <div>({{placedShips.get(shipType.DESTROYER)}}/{{requiredShips.get(shipType.DESTROYER)}})</div>
+      </button>
+    </div>
+
+    <div class="ship-placement-type">
+      <button (click)="selectShipType(shipType.BATTLESHIP)" [disabled]="selectedShipType === shipType.BATTLESHIP">
+        <div>
+          <div>■■■</div> Battleship
+        </div>
+        <div>({{placedShips.get(shipType.BATTLESHIP)}}/{{requiredShips.get(shipType.BATTLESHIP)}})</div>
+      </button>
+    </div>
+
+    <div class="ship-placement-type">
+      <button (click)="selectShipType(shipType.AIRCRAFT_CARRIER)" [disabled]="selectedShipType === shipType.AIRCRAFT_CARRIER">
+        <div>
+          <div>■■■■</div> Aircraft Carrier
+        </div>
+        <div>({{placedShips.get(shipType.AIRCRAFT_CARRIER)}}/{{requiredShips.get(shipType.AIRCRAFT_CARRIER)}})</div>
+      </button>
+    </div>
+
+</div>
