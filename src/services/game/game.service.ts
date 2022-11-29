@@ -3,6 +3,7 @@ import {Game} from "../../entity/game";
 import {Coordinates} from "../../entity/coordinates";
 import {Ship} from "../../entity/ship";
 import {ShipPlacementService} from "../ship-placement/ship-placement.service";
+import {ShipType} from "../../enumeration/shipType";
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,16 @@ export class GameService {
   placeShip(coordinates: Coordinates): void {
     let ship = new Ship(this.shipPlacementService.orientation, this.shipPlacementService.shipType, coordinates)
     this.game.fieldPlayerOne.ships.push(ship)
+  }
+
+  getAmountOfPlacedShipsForShipType(shipType: ShipType): number {
+    let amount = 0
+    for(let i = 0; i < this.game.fieldPlayerOne.ships.length; i++) {
+      if (this.game.fieldPlayerOne.ships[i].shipType === shipType) {
+        amount++
+      }
+    }
+    return amount
   }
 
 }

@@ -13,7 +13,6 @@ export class FieldComponent implements OnInit {
 
   coordinates: Coordinates[] = []
 
-
   constructor(private gameConfigService: GameConfigService) {}
 
   @Input() field!: Field
@@ -53,9 +52,7 @@ export class FieldComponent implements OnInit {
         this.getAllShipCoordinates()[i].x === coordinates.x &&
         this.getAllShipCoordinates()[i].y === coordinates.y
       ) {
-        console.log("TRUE")
         return true
-
       }
     }
     return false

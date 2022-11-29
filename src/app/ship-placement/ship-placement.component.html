@@ -12,7 +12,7 @@
         <div>
           <div>■</div> Submarine
         </div>
-        <div>({{placedShips.get(shipType.SUBMARINE)}}/{{gameConfigService.SHIPS.get(shipType.SUBMARINE)}})</div>
+        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.SUBMARINE)}}/{{gameConfigService.SHIPS.get(shipType.SUBMARINE)}})</div>
       </button>
     </div>
 
@@ -21,7 +21,7 @@
         <div>
           <div>■■</div> Destroyer
         </div>
-        <div>({{placedShips.get(shipType.DESTROYER)}}/{{gameConfigService.SHIPS.get(shipType.DESTROYER)}})</div>
+        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.DESTROYER)}}/{{gameConfigService.SHIPS.get(shipType.DESTROYER)}})</div>
       </button>
     </div>
 
@@ -30,7 +30,7 @@
         <div>
           <div>■■■</div> Battleship
         </div>
-        <div>({{placedShips.get(shipType.BATTLESHIP)}}/{{gameConfigService.SHIPS.get(shipType.BATTLESHIP)}})</div>
+        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.BATTLESHIP)}}/{{gameConfigService.SHIPS.get(shipType.BATTLESHIP)}})</div>
       </button>
     </div>
 
@@ -39,7 +39,7 @@
         <div>
           <div>■■■■</div> Aircraft Carrier
         </div>
-        <div>({{placedShips.get(shipType.AIRCRAFT_CARRIER)}}/{{gameConfigService.SHIPS.get(shipType.AIRCRAFT_CARRIER)}})</div>
+        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.AIRCRAFT_CARRIER)}}/{{gameConfigService.SHIPS.get(shipType.AIRCRAFT_CARRIER)}})</div>
       </button>
     </div>
 
