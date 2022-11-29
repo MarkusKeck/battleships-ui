@@ -1,6 +1,10 @@
 .ship-placement {
   width: 250px;
   margin: 25px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: white;
 }
 
 
@@ -47,19 +51,31 @@
   height: 100%;
   line-height: 30px;
 }
-
-
-
-button {
-  background-color: white;
-  color: gray;
-  border: 2px solid lightgray;
-  border-radius: 5px;
-  padding: 5px;
+button:hover {
   cursor: pointer;
+}
+button:disabled:hover {
+  cursor: default;
 }
 
 button:disabled {
   color: black;
   border: 2px solid cornflowerblue;
+  border-radius: 3px;
+}
+
+.play button {
+  color: white;
+  width: 100%;
+  font-size: 16px;
+  height: 30px;
+  line-height: 26px;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.play button:disabled {
+  background-color: cornflowerblue;
+  opacity: 0.4;
+  cursor: default;
 }

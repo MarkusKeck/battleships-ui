@@ -1,5 +1,3 @@
-<button class="coordinate-field" (click)="placeShip()" [disabled]="disabled">
-  x: {{coordinates.x}}
-  <br />
-  y: {{coordinates.y}}
+<button class="coordinate-field" (click)="placeShip()" [disabled]="disabled" [class.occupied]="occupied">
+
 </button>

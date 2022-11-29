@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {GameConfig} from "../../GameConfig";
+import {Component, OnInit} from '@angular/core';
 import {ShipType} from "../../enumeration/shipType";
 import {Orientation} from "../../enumeration/orientation";
+import {GameService} from "../../services/game/game.service";
+import {ShipPlacementService} from "../../services/ship-placement/ship-placement.service";
+import {GameConfigService} from "../../services/game-config/game-config.service";
 
 @Component({
   selector: 'app-ship-placement',
@@ -13,13 +15,13 @@ export class ShipPlacementComponent implements OnInit {
   orientation: typeof Orientation = Orientation
   shipType: typeof ShipType = ShipType
 
-  requiredShips = GameConfig.SHIPS
   placedShips = new Map<ShipType, number>()
 
-  selectedOrientation = Orientation.HORIZONTAL;
-  selectedShipType = ShipType.SUBMARINE;
-
-  constructor() { }
+  constructor(
+    public gameService: GameService,
+    public shipPlacementService: ShipPlacementService,
+    public gameConfigService: GameConfigService) {
+  }
 
   ngOnInit(): void {
     this.placedShips.set(ShipType.SUBMARINE, 0);
@@ -28,12 +30,12 @@ export class ShipPlacementComponent implements OnInit {
     this.placedShips.set(ShipType.AIRCRAFT_CARRIER, 0);
   }
 
-  selectOrientation(o: Orientation): void {
-    this.selectedOrientation = o;
+  setOrientation(o: Orientation): void {
+    this.shipPlacementService.orientation = o
   }
 
-  selectShipType(type: ShipType): void {
-    this.selectedShipType = type;
+  setShipType(s: ShipType): void {
+    this.shipPlacementService.shipType = s
   }
 
 }

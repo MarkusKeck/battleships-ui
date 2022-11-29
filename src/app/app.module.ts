@@ -6,6 +6,9 @@ import { FieldComponent } from './field/field.component';
 import { CoordinateFieldComponent } from './coordinate-field/coordinate-field.component';
 import { ShipPlacementComponent } from './ship-placement/ship-placement.component';
 import { GameComponent } from './game/game.component';
+import { SelectDifficultyComponent } from './select-difficulty/select-difficulty.component';
+import {FormsModule} from "@angular/forms";
+import { PlayGameComponent } from './play-game/play-game.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +16,13 @@ import { GameComponent } from './game/game.component';
     FieldComponent,
     CoordinateFieldComponent,
     ShipPlacementComponent,
-    GameComponent
+    GameComponent,
+    SelectDifficultyComponent,
+    PlayGameComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

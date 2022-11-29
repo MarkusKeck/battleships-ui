@@ -1,0 +1,14 @@
+<div class="difficulty">
+
+  <select [(ngModel)]="gameService.game.difficulty">
+    <option [value]="difficulty.VERY_EASY">VERY_EASY</option>
+    <option [value]="difficulty.EASY">EASY</option>
+    <option [value]="difficulty.MEDIUM" selected>MEDIUM</option>
+    <option [value]="difficulty.HARD">HARD</option>
+    <option [value]="difficulty.VERY_HARD">VERY_HARD</option>
+    <option [value]="difficulty.UNBEATABLE">UNBEATABLE</option>
+  </select>
+
+  <button (click)="next()">Continue</button>
+
+</div>

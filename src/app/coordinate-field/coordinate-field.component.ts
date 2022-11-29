@@ -1,25 +1,26 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Coordinates} from "../../entity/coordinates";
+import {Field} from "../../entity/field";
+import {GameService} from "../../services/game/game.service";
 
 @Component({
   selector: 'app-coordinate-field',
   templateUrl: './coordinate-field.component.html',
   styleUrls: ['./coordinate-field.component.css']
 })
-export class CoordinateFieldComponent implements OnInit {
+export class CoordinateFieldComponent {
 
   @Input() coordinates!: Coordinates
+  @Input() field!: Field
+  @Input() occupied!: boolean
 
   disabled: boolean = false
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private gameService: GameService) { }
 
   placeShip(): void {
-    alert("x: " + this.coordinates.x + " y: " + this.coordinates.y);
-    this.disabled = true;
+    this.gameService.coordinatesClicked(this.coordinates)
+    this.disabled = true
   }
 
 }

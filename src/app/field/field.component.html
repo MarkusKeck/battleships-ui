@@ -1,6 +1,6 @@
 <div class="field">
 
-  <app-coordinate-field *ngFor="let c of coordinates" [coordinates]="c">
+  <app-coordinate-field *ngFor="let c of coordinates" [coordinates]="c" [field]="field" [occupied]="isCoordinateOccupied(c)">
   </app-coordinate-field>
 
 </div>

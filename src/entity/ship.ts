@@ -8,10 +8,16 @@ export class Ship {
 
   orientation?: Orientation
 
-  shipType?: ShipType
+  shipType: ShipType
 
-  coordinates?: Coordinates
+  coordinates: Coordinates
 
-  isDestroyed?: boolean
+  isDestroyed: boolean = false
 
+
+  constructor(orientation: Orientation, shipType: ShipType, coordinates: Coordinates) {
+    this.orientation = orientation;
+    this.shipType = shipType;
+    this.coordinates = coordinates;
+  }
 }

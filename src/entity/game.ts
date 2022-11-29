@@ -7,12 +7,14 @@ export class Game {
 
   id?: number
 
-  fieldPlayerOne?: Field
-  fieldPlayerTwo?: Field
+  state: number = 1
+
+  fieldPlayerOne: Field = new Field()
+  fieldPlayerTwo: Field = new Field()
 
   turns?: Turn[] = []
 
-  difficulty?: Difficulty
+  difficulty?: Difficulty = Difficulty.MEDIUM
 
   winner?: Player
 

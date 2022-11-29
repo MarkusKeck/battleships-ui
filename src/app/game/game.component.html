@@ -1,7 +1,8 @@
-<app-field></app-field>
+<!-- Step 1: Select difficulty -->
+<app-select-difficulty *ngIf="gameService.game.state === 1"></app-select-difficulty>
 
-<br />
+<!-- Step 2: Place ships -->
+<app-ship-placement *ngIf="gameService.game.state === 2"></app-ship-placement>
 
-<app-field></app-field>
-
-<app-ship-placement></app-ship-placement>
+<!-- Step 3: Play game -->
+<app-play-game *ngIf="gameService.game.state === 3"></app-play-game>

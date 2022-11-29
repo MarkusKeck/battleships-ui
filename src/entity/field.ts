@@ -4,6 +4,6 @@ export class Field {
 
   id?: number
 
-  ships?: Ship[] = []
+  ships: Ship[] = []
 
 }

@@ -1,43 +1,51 @@
+<app-field [field]="gameService.game.fieldPlayerOne"></app-field>
+
 <div class="ship-placement">
 
     <div class="ship-placement-orientation">
-      <button (click)="selectOrientation(orientation.HORIZONTAL)" [disabled]="selectedOrientation === orientation.HORIZONTAL"><div>■■■</div>Horizontal</button>
-      <button (click)="selectOrientation(orientation.VERTICAL)" [disabled]="selectedOrientation === orientation.VERTICAL"><div>■■■</div>Vertical</button>
+      <button (click)="setOrientation(orientation.HORIZONTAL)" [disabled]="shipPlacementService.orientation === orientation.HORIZONTAL"><div>■■■</div>Horizontal</button>
+      <button (click)="setOrientation(orientation.VERTICAL)" [disabled]="shipPlacementService.orientation === orientation.VERTICAL"><div>■■■</div>Vertical</button>
     </div>
 
     <div class="ship-placement-type">
-      <button (click)="selectShipType(shipType.SUBMARINE)" [disabled]="selectedShipType === shipType.SUBMARINE">
+      <button (click)="setShipType(shipType.SUBMARINE)" [disabled]="shipPlacementService.shipType === shipType.SUBMARINE">
         <div>
           <div>■</div> Submarine
         </div>
-        <div>({{placedShips.get(shipType.SUBMARINE)}}/{{requiredShips.get(shipType.SUBMARINE)}})</div>
+        <div>({{placedShips.get(shipType.SUBMARINE)}}/{{gameConfigService.SHIPS.get(shipType.SUBMARINE)}})</div>
       </button>
     </div>
 
     <div class="ship-placement-type">
-      <button (click)="selectShipType(shipType.DESTROYER)" [disabled]="selectedShipType === shipType.DESTROYER">
+      <button (click)="setShipType(shipType.DESTROYER)" [disabled]="shipPlacementService.shipType === shipType.DESTROYER">
         <div>
           <div>■■</div> Destroyer
         </div>
-        <div>({{placedShips.get(shipType.DESTROYER)}}/{{requiredShips.get(shipType.DESTROYER)}})</div>
+        <div>({{placedShips.get(shipType.DESTROYER)}}/{{gameConfigService.SHIPS.get(shipType.DESTROYER)}})</div>
       </button>
     </div>
 
     <div class="ship-placement-type">
-      <button (click)="selectShipType(shipType.BATTLESHIP)" [disabled]="selectedShipType === shipType.BATTLESHIP">
+      <button (click)="setShipType(shipType.BATTLESHIP)" [disabled]="shipPlacementService.shipType === shipType.BATTLESHIP">
         <div>
           <div>■■■</div> Battleship
         </div>
-        <div>({{placedShips.get(shipType.BATTLESHIP)}}/{{requiredShips.get(shipType.BATTLESHIP)}})</div>
+        <div>({{placedShips.get(shipType.BATTLESHIP)}}/{{gameConfigService.SHIPS.get(shipType.BATTLESHIP)}})</div>
       </button>
     </div>
 
     <div class="ship-placement-type">
-      <button (click)="selectShipType(shipType.AIRCRAFT_CARRIER)" [disabled]="selectedShipType === shipType.AIRCRAFT_CARRIER">
+      <button (click)="setShipType(shipType.AIRCRAFT_CARRIER)" [disabled]="shipPlacementService.shipType === shipType.AIRCRAFT_CARRIER">
         <div>
           <div>■■■■</div> Aircraft Carrier
         </div>
-        <div>({{placedShips.get(shipType.AIRCRAFT_CARRIER)}}/{{requiredShips.get(shipType.AIRCRAFT_CARRIER)}})</div>
+        <div>({{placedShips.get(shipType.AIRCRAFT_CARRIER)}}/{{gameConfigService.SHIPS.get(shipType.AIRCRAFT_CARRIER)}})</div>
+      </button>
+    </div>
+
+    <div class="play">
+      <button [disabled]="true">
+          Play
       </button>
     </div>
 
