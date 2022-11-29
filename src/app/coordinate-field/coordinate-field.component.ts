@@ -14,13 +14,12 @@ export class CoordinateFieldComponent {
   @Input() field!: Field
   @Input() occupied!: boolean
 
-  disabled: boolean = false
+  constructor(private gameService: GameService) {
 
-  constructor(private gameService: GameService) { }
+  }
 
   placeShip(): void {
     this.gameService.coordinatesClicked(this.coordinates)
-    this.disabled = true
   }
 
 }

@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Coordinates} from "../../entity/coordinates";
 import {Field} from "../../entity/field";
 import {GameConfigService} from "../../services/game-config/game-config.service";
-import {Orientation} from "../../enumeration/orientation";
+import {GameService} from "../../services/game/game.service";
 
 @Component({
   selector: 'app-field',
@@ -13,29 +13,12 @@ export class FieldComponent implements OnInit {
 
   coordinates: Coordinates[] = []
 
-  constructor(private gameConfigService: GameConfigService) {}
+  constructor(private gameConfigService: GameConfigService, public gameService: GameService) {}
 
   @Input() field!: Field
 
   ngOnInit(): void {
     this.populateWater()
-  }
-
-  getAllShipCoordinates(): Coordinates[] {
-    let allShipCoordinates: Coordinates[] = []
-    this.field.ships.forEach((ship) => {
-      let x: number = ship.coordinates.x!
-      let y: number = ship.coordinates.y!
-
-      for (let length = 0; length < ship.shipType; length++) {
-        if (ship.orientation === Orientation.HORIZONTAL) {
-          allShipCoordinates.push(new Coordinates(x + length, y))
-        } else {
-          allShipCoordinates.push(new Coordinates(x, y + length))
-        }
-      }
-    })
-   return allShipCoordinates;
   }
 
   populateWater() : void {
@@ -44,18 +27,6 @@ export class FieldComponent implements OnInit {
         this.coordinates.push(new Coordinates(x, y))
       }
     }
-  }
-
-  isCoordinateOccupied(coordinates: Coordinates): boolean {
-    for(let i = 0; i < this.getAllShipCoordinates().length; i++) {
-      if (
-        this.getAllShipCoordinates()[i].x === coordinates.x &&
-        this.getAllShipCoordinates()[i].y === coordinates.y
-      ) {
-        return true
-      }
-    }
-    return false
   }
 
 }

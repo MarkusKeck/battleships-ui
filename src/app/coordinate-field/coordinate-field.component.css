@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.occupied {
+button:disabled {
   background-color: cornflowerblue;
   border: 1px solid cornflowerblue;
 }

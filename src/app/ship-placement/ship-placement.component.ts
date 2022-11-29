@@ -15,8 +15,6 @@ export class ShipPlacementComponent implements OnInit {
   orientation: typeof Orientation = Orientation
   shipType: typeof ShipType = ShipType
 
-  placedShips = new Map<ShipType, number>()
-
   constructor(
     public gameService: GameService,
     public shipPlacementService: ShipPlacementService,
@@ -24,10 +22,6 @@ export class ShipPlacementComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.placedShips.set(ShipType.SUBMARINE, 0);
-    this.placedShips.set(ShipType.DESTROYER, 0);
-    this.placedShips.set(ShipType.BATTLESHIP, 0);
-    this.placedShips.set(ShipType.AIRCRAFT_CARRIER, 0);
   }
 
   setOrientation(o: Orientation): void {
