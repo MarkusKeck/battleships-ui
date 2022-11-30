@@ -40,6 +40,8 @@ export class GameService {
     return amount
   }
 
+
+
   getAllShipCoordinatesFromField(field: Field): Coordinates[] {
     let allShipCoordinates: Coordinates[] = []
     field.ships.forEach((ship) => {

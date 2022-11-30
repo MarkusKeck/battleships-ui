@@ -73,9 +73,17 @@ button:disabled {
   display: flex;
   justify-content: space-around;
   cursor: pointer;
+  background-color: cornflowerblue;
 }
 .play button:disabled {
-  background-color: cornflowerblue;
-  opacity: 0.4;
+  border: none;
+  border-radius: 3px;
   cursor: default;
+  opacity: 0.4;
+}
+.play button:hover {
+  background-color:dodgerblue;
+}
+.play button:disabled:hover {
+  background-color:cornflowerblue;
 }

@@ -44,7 +44,7 @@
     </div>
 
     <div class="play">
-      <button [disabled]="true">
+      <button (click)="next()" [disabled]="!areCorrectAmountsOfShipsPlaced()">
           Play
       </button>
     </div>
