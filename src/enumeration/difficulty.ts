@@ -1,8 +1,8 @@
 export enum Difficulty {
-  VERY_EASY = 0,
-  EASY = 20,
-  MEDIUM = 40,
-  HARD = 60,
-  VERY_HARD = 80,
-  UNBEATABLE = 100
+  VERY_EASY = 'VERY_EASY',
+  EASY = 'EASY',
+  MEDIUM = 'MEDIUM',
+  HARD = 'HARD',
+  VERY_HARD = 'VERY_HARD',
+  UNBEATABLE = 'UNBEATABLE'
 }

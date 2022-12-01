@@ -1,3 +1,3 @@
 export enum Orientation {
-  VERTICAL, HORIZONTAL
+  VERTICAL = 'VERTICAL', HORIZONTAL = 'HORIZONTAL'
 }

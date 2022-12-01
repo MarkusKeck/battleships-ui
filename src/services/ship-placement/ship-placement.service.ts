@@ -8,7 +8,7 @@ import {ShipType} from "../../enumeration/shipType";
 export class ShipPlacementService {
 
   orientation: Orientation = Orientation.HORIZONTAL
-  shipType: ShipType = ShipType.SUBMARINE
+  shipType: string = ShipType.SUBMARINE.name
 
   constructor() {}
 

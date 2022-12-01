@@ -4,6 +4,7 @@ import {Orientation} from "../../enumeration/orientation";
 import {GameService} from "../../services/game/game.service";
 import {ShipPlacementService} from "../../services/ship-placement/ship-placement.service";
 import {GameConfigService} from "../../services/game-config/game-config.service";
+import {BattleshipApiService} from "../../services/api/battleship-api.service";
 
 @Component({
   selector: 'app-ship-placement',
@@ -18,7 +19,8 @@ export class ShipPlacementComponent implements OnInit {
   constructor(
     public gameService: GameService,
     public shipPlacementService: ShipPlacementService,
-    public gameConfigService: GameConfigService) {
+    public gameConfigService: GameConfigService,
+    public battleshipApiService: BattleshipApiService) {
   }
 
   ngOnInit(): void {
@@ -28,20 +30,20 @@ export class ShipPlacementComponent implements OnInit {
     this.shipPlacementService.orientation = o
   }
 
-  setShipType(s: ShipType): void {
+  setShipType(s: string): void {
     this.shipPlacementService.shipType = s
   }
 
   areCorrectAmountsOfShipsPlaced(): boolean {
-    let AMOUNT_SUBMARINE: number        = this.gameConfigService.SHIPS.get(ShipType.SUBMARINE)!
-    let AMOUNT_DESTROYER: number        = this.gameConfigService.SHIPS.get(ShipType.DESTROYER)!
-    let AMOUNT_BATTLESHIP: number       = this.gameConfigService.SHIPS.get(ShipType.BATTLESHIP)!
-    let AMOUNT_AIRCRAFT_CARRIER: number = this.gameConfigService.SHIPS.get(ShipType.AIRCRAFT_CARRIER)!
+    let AMOUNT_SUBMARINE: number        = this.gameConfigService.SHIPS.get(ShipType.SUBMARINE.name)!
+    let AMOUNT_DESTROYER: number        = this.gameConfigService.SHIPS.get(ShipType.DESTROYER.name)!
+    let AMOUNT_BATTLESHIP: number       = this.gameConfigService.SHIPS.get(ShipType.BATTLESHIP.name)!
+    let AMOUNT_AIRCRAFT_CARRIER: number = this.gameConfigService.SHIPS.get(ShipType.AIRCRAFT_CARRIER.name)!
 
-    let FIELD_SUBMARINE_COUNT: number         = this.gameService.getAmountOfPlacedShipsForShipType(ShipType.SUBMARINE)
-    let FIELD_DESTROYER_COUNT: number         = this.gameService.getAmountOfPlacedShipsForShipType(ShipType.DESTROYER)
-    let FIELD_BATTLESHIP_COUNT: number        = this.gameService.getAmountOfPlacedShipsForShipType(ShipType.BATTLESHIP)
-    let FIELD_AIRCRAFT_CARRIER_COUNT: number  = this.gameService.getAmountOfPlacedShipsForShipType(ShipType.AIRCRAFT_CARRIER)
+    let FIELD_SUBMARINE_COUNT: number         = this.gameService.getAmountOfPlacedShipsForShipType(ShipType.SUBMARINE.name)
+    let FIELD_DESTROYER_COUNT: number         = this.gameService.getAmountOfPlacedShipsForShipType(ShipType.DESTROYER.name)
+    let FIELD_BATTLESHIP_COUNT: number        = this.gameService.getAmountOfPlacedShipsForShipType(ShipType.BATTLESHIP.name)
+    let FIELD_AIRCRAFT_CARRIER_COUNT: number  = this.gameService.getAmountOfPlacedShipsForShipType(ShipType.AIRCRAFT_CARRIER.name)
 
     return (
       FIELD_SUBMARINE_COUNT == AMOUNT_SUBMARINE &&
@@ -52,7 +54,7 @@ export class ShipPlacementComponent implements OnInit {
   }
 
   next(): void {
-    this.gameService.game.state = 3
+    this.gameService.placeShips();
   }
 
 

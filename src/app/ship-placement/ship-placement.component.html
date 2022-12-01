@@ -8,38 +8,38 @@
     </div>
 
     <div class="ship-placement-type">
-      <button (click)="setShipType(shipType.SUBMARINE)" [disabled]="shipPlacementService.shipType === shipType.SUBMARINE">
+      <button (click)="setShipType(shipType.SUBMARINE.name)" [disabled]="shipPlacementService.shipType === shipType.SUBMARINE.name">
         <div>
           <div>■</div> Submarine
         </div>
-        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.SUBMARINE)}}/{{gameConfigService.SHIPS.get(shipType.SUBMARINE)}})</div>
+        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.SUBMARINE.name)}}/{{gameConfigService.SHIPS.get(shipType.SUBMARINE.name)}})</div>
       </button>
     </div>
 
     <div class="ship-placement-type">
-      <button (click)="setShipType(shipType.DESTROYER)" [disabled]="shipPlacementService.shipType === shipType.DESTROYER">
+      <button (click)="setShipType(shipType.DESTROYER.name)" [disabled]="shipPlacementService.shipType === shipType.DESTROYER.name">
         <div>
           <div>■■</div> Destroyer
         </div>
-        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.DESTROYER)}}/{{gameConfigService.SHIPS.get(shipType.DESTROYER)}})</div>
+        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.DESTROYER.name)}}/{{gameConfigService.SHIPS.get(shipType.DESTROYER.name)}})</div>
       </button>
     </div>
 
     <div class="ship-placement-type">
-      <button (click)="setShipType(shipType.BATTLESHIP)" [disabled]="shipPlacementService.shipType === shipType.BATTLESHIP">
+      <button (click)="setShipType(shipType.BATTLESHIP.name)" [disabled]="shipPlacementService.shipType === shipType.BATTLESHIP.name">
         <div>
           <div>■■■</div> Battleship
         </div>
-        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.BATTLESHIP)}}/{{gameConfigService.SHIPS.get(shipType.BATTLESHIP)}})</div>
+        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.BATTLESHIP.name)}}/{{gameConfigService.SHIPS.get(shipType.BATTLESHIP.name)}})</div>
       </button>
     </div>
 
     <div class="ship-placement-type">
-      <button (click)="setShipType(shipType.AIRCRAFT_CARRIER)" [disabled]="shipPlacementService.shipType === shipType.AIRCRAFT_CARRIER">
+      <button (click)="setShipType(shipType.AIRCRAFT_CARRIER.name)" [disabled]="shipPlacementService.shipType === shipType.AIRCRAFT_CARRIER.name">
         <div>
           <div>■■■■</div> Aircraft Carrier
         </div>
-        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.AIRCRAFT_CARRIER)}}/{{gameConfigService.SHIPS.get(shipType.AIRCRAFT_CARRIER)}})</div>
+        <div>({{gameService.getAmountOfPlacedShipsForShipType(shipType.AIRCRAFT_CARRIER.name)}}/{{gameConfigService.SHIPS.get(shipType.AIRCRAFT_CARRIER.name)}})</div>
       </button>
     </div>
 

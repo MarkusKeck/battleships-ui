@@ -13,8 +13,4 @@ export class SelectDifficultyComponent {
 
   constructor(public gameService: GameService) {}
 
-  next(): void {
-    this.gameService.game.state = 2
-  }
-
 }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Game} from "../../entity/game";
+import {GameService} from "../../services/game/game.service";
 
 @Component({
   selector: 'app-play-game',
@@ -8,9 +9,7 @@ import {Game} from "../../entity/game";
 })
 export class PlayGameComponent implements OnInit {
 
-  constructor() {}
-
-  @Input() game!: Game
+  constructor(public gameService: GameService) {}
 
   ngOnInit(): void {
   }

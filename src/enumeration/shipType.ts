@@ -1,6 +1,6 @@
-export enum ShipType {
-  SUBMARINE = 1,
-  DESTROYER = 2,
-  BATTLESHIP = 3,
-  AIRCRAFT_CARRIER = 4
+export const ShipType = {
+  SUBMARINE:  {name: 'SUBMARINE', length: 1 },
+  DESTROYER: {name: 'DESTROYER', length: 2 },
+  BATTLESHIP: {name: 'BATTLESHIP', length: 3 },
+  AIRCRAFT_CARRIER: {name: 'AIRCRAFT_CARRIER', length: 4 }
 }

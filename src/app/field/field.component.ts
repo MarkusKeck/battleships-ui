@@ -21,7 +21,7 @@ export class FieldComponent implements OnInit {
     this.populateWater()
   }
 
-  populateWater() : void {
+  populateWater(): void {
     for(let y = 1; y <= this.gameConfigService.HEIGHT; y++) {
       for(let x = 1; x <= this.gameConfigService.WIDTH; x++) {
         this.coordinates.push(new Coordinates(x, y))

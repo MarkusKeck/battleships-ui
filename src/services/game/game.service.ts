@@ -6,13 +6,14 @@ import {ShipPlacementService} from "../ship-placement/ship-placement.service";
 import {ShipType} from "../../enumeration/shipType";
 import {Orientation} from "../../enumeration/orientation";
 import {Field} from "../../entity/field";
+import {BattleshipApiService} from "../api/battleship-api.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-  constructor(private shipPlacementService: ShipPlacementService) { }
+  constructor(private shipPlacementService: ShipPlacementService, private battleshipApiService: BattleshipApiService) {}
 
   game: Game = new Game()
 
@@ -20,7 +21,7 @@ export class GameService {
     if (this.game.state == 2) {
       this.placeShip(coordinates)
     } else {
-      // fire
+      this.fire(coordinates)
     }
   }
 
@@ -30,9 +31,9 @@ export class GameService {
     this.game.fieldPlayerOne.ships.push(ship)
   }
 
-  getAmountOfPlacedShipsForShipType(shipType: ShipType): number {
+  getAmountOfPlacedShipsForShipType(shipType: string): number {
     let amount = 0
-    for(let i = 0; i < this.game.fieldPlayerOne.ships.length; i++) {
+    for (let i = 0; i < this.game.fieldPlayerOne.ships.length; i++) {
       if (this.game.fieldPlayerOne.ships[i].shipType === shipType) {
         amount++
       }
@@ -40,15 +41,29 @@ export class GameService {
     return amount
   }
 
-
-
   getAllShipCoordinatesFromField(field: Field): Coordinates[] {
     let allShipCoordinates: Coordinates[] = []
     field.ships.forEach((ship) => {
       let x: number = ship.coordinates.x!
       let y: number = ship.coordinates.y!
 
-      for (let length = 0; length < ship.shipType; length++) {
+      let shipLength;
+      switch (ship.shipType) {
+        case ShipType.SUBMARINE.name:
+          shipLength = ShipType.SUBMARINE.length
+          break;
+        case ShipType.DESTROYER.name:
+          shipLength = ShipType.DESTROYER.length
+          break;
+        case ShipType.BATTLESHIP.name:
+          shipLength = ShipType.BATTLESHIP.length
+          break;
+        default:
+          shipLength = ShipType.AIRCRAFT_CARRIER.length
+          break;
+      }
+
+      for (let length = 0; length < shipLength; length++) {
         if (ship.orientation === Orientation.HORIZONTAL) {
           allShipCoordinates.push(new Coordinates(x + length, y))
         } else {
@@ -69,6 +84,24 @@ export class GameService {
       }
     }
     return false
+  }
+
+  start(): void {
+    this.battleshipApiService.startGameWithDifficulty(this.game.difficulty!).subscribe(Response => {
+      this.game = Response
+      this.game.state = 2
+    })
+  }
+
+  placeShips(): void {
+    this.battleshipApiService.placeShips(this.game).subscribe(Response => {
+      this.game = Response
+      this.game.state = 3
+    })
+  }
+
+  fire(coordinates: Coordinates): void {
+    alert(coordinates)
   }
 
 }
