@@ -5,6 +5,7 @@ import {GameService} from "../../services/game/game.service";
 import {ShipPlacementService} from "../../services/ship-placement/ship-placement.service";
 import {GameConfigService} from "../../services/game-config/game-config.service";
 import {BattleshipApiService} from "../../services/api/battleship-api.service";
+import {Player} from "../../enumeration/player";
 
 @Component({
   selector: 'app-ship-placement',
@@ -15,6 +16,7 @@ export class ShipPlacementComponent implements OnInit {
 
   orientation: typeof Orientation = Orientation
   shipType: typeof ShipType = ShipType
+  player: typeof Player = Player
 
   constructor(
     public gameService: GameService,

@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Coordinates} from "../../entity/coordinates";
 import {Field} from "../../entity/field";
 import {GameConfigService} from "../../services/game-config/game-config.service";
-import {GameService} from "../../services/game/game.service";
+import {Player} from "../../enumeration/player";
 
 @Component({
   selector: 'app-field',
@@ -13,9 +13,10 @@ export class FieldComponent implements OnInit {
 
   coordinates: Coordinates[] = []
 
-  constructor(private gameConfigService: GameConfigService, public gameService: GameService) {}
+  constructor(private gameConfigService: GameConfigService) {}
 
   @Input() field!: Field
+  @Input() player!: Player
 
   ngOnInit(): void {
     this.populateWater()

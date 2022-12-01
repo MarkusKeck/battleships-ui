@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Game} from "../../entity/game";
+import {Component, OnInit} from '@angular/core';
 import {GameService} from "../../services/game/game.service";
+import {Player} from "../../enumeration/player";
 
 @Component({
   selector: 'app-play-game',
@@ -10,6 +10,8 @@ import {GameService} from "../../services/game/game.service";
 export class PlayGameComponent implements OnInit {
 
   constructor(public gameService: GameService) {}
+
+  player: typeof Player = Player
 
   ngOnInit(): void {
   }

@@ -12,7 +12,7 @@ export class Game {
   fieldPlayerOne: Field = new Field()
   fieldPlayerTwo: Field = new Field()
 
-  turns?: Turn[] = []
+  turns: Turn[] = []
 
   difficulty?: Difficulty = Difficulty.MEDIUM
 

@@ -1,3 +1,3 @@
-<button class="coordinate-field" (click)="placeShip()" [disabled]="occupied">
-
+<button class="coordinate-field" (click)="placeShip()" [disabled]="isOccupied()">
+  <div [class]="getContent()"></div>
 </button>

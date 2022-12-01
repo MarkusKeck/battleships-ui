@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, tap} from "rxjs";
+import {Observable} from "rxjs";
 import {Difficulty} from "../../enumeration/difficulty";
 import {Game} from "../../entity/game";
-import {Ship} from "../../entity/ship";
+import {Coordinates} from "../../entity/coordinates";
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,14 @@ export class BattleshipApiService {
     return this.http.put<Game>(
       'http://localhost:8080/game/' + game.id + '/placeShips',
       {ships},
+      {headers: this.headers}
+    )
+  }
+
+  shoot(game: Game, coordinates: Coordinates) : Observable<Game> {
+    return this.http.put<Game>(
+      'http://localhost:8080/game/' + game.id + '/shoot',
+      {x: coordinates.x, y: coordinates.y},
       {headers: this.headers}
     )
   }

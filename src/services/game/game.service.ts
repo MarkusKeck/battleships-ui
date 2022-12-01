@@ -21,7 +21,7 @@ export class GameService {
     if (this.game.state == 2) {
       this.placeShip(coordinates)
     } else {
-      this.fire(coordinates)
+      this.shoot(coordinates)
     }
   }
 
@@ -100,8 +100,11 @@ export class GameService {
     })
   }
 
-  fire(coordinates: Coordinates): void {
-    alert(coordinates)
+  shoot(coordinates: Coordinates): void {
+    this.battleshipApiService.shoot(this.game, coordinates).subscribe(Response => {
+      this.game = Response
+      this.game.state = 3
+    })
   }
 
 }

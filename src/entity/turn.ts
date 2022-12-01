@@ -7,7 +7,7 @@ export class Turn {
   turn?: number
 
   player?: Player
-  coordinates?: Coordinates
+  coordinates: Coordinates = new Coordinates(0, 0)
 
   hit?: boolean
 }
